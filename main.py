@@ -1,3 +1,5 @@
+import sys
+
 def char_count(file_contents):
     character_count = {}
     # make all the text lowercase
@@ -15,9 +17,9 @@ def word_count(file_contents):
     # count words from contents
     return len(file_contents.split())
 
-def main():
+def main(filepath):
     # open and read contents
-    with open("books/frankenstein.txt") as f:
+    with open(filepath) as f:
         file_contents = f.read()
 
     # get the word count
@@ -33,4 +35,9 @@ def main():
         print(f"The '{char}' character was found {count} times")
 
 if __name__ == "__main__":
-	main()
+    #check for arg
+    if len(sys.argv) != 2:
+        print ("Usage: python3 main.py <filepath>")
+        sys.exit(1)
+    filepath = sys.argv[1]
+    main(filepath)
