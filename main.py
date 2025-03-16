@@ -9,8 +9,6 @@ def char_count(file_contents):
         if char.isalpha():
             # check if key exists, if not create it w/ value of 0, +1 if existing
             character_count[char] = character_count.get(char, 0) + 1
-
-
     return character_count
 
 def word_count(file_contents):
